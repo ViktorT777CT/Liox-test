@@ -19,11 +19,12 @@ class CreateTasksTable extends Migration
             $table->text('description');
             $table->string('client');
             $table->string('email');
-            $table->string('link_to_the_file');
+            $table->string('link_to_the_file')->nullable();
             $table->dateTime('create_task');
             $table->dateTime('start_task');
             $table->dateTime('end_task');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -15,14 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('theme');
-            $table->text('description');
-            $table->string('client');
-            $table->string('email');
+            $table->string('theme')->nullable();;
+            $table->text('description')->nullable();;
+            $table->string('client')->nullable();
+            $table->string('email')->nullable();;
             $table->string('link_to_the_file')->nullable();
-            $table->dateTime('create_task');
-            $table->dateTime('start_task');
-            $table->dateTime('end_task');
+            $table->dateTime('start_task')->nullable();;
+            $table->dateTime('end_task')->nullable();;
             $table->timestamps();
             $table->softDeletes();
         });

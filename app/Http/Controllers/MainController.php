@@ -9,12 +9,17 @@ class MainController extends Controller
 {
     public function index()
     {
-       // $task = Task::all();
+       $tasks = Task::all();
 
         /*dump($questions);*/
 
 
-        return view('main');
+        return view('main', ['tasks' => $tasks]);
 
     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 }

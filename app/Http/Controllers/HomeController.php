@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +26,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function store(){
+        $data = request()->validate([
+            'theme' => 'string',
+            'description' => 'string',
+            'start_task' => 'string',
+            'end_task' => 'string',
+        ]);
+        Task::create($data);
+        return redirect()->route('home.index');
     }
 }

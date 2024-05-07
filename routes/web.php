@@ -13,10 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/home');
+});
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('task.index');
-//Route::get('/', 'App\Http\Controllers\MainController@index')->name('task.index');
+//Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home.index');
+
+//Route::get('/main', 'App\Http\Controllers\MainController@index')->name('main.index');
+
+
+
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/main', 'App\Http\Controllers\MainController@index')->name('main.index');
+});
+Route::post('/home', 'App\Http\Controllers\HomeController@store')->name('home.store');
+
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'user'], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+

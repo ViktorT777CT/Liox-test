@@ -37,7 +37,7 @@
                             <label for="answer" class="form-label">Дата завершения</label>
                                 <input type="datetime-local" name="end_task" class="form-control" id="end_task" >
                         </div>
-                        <button type="submit" class="btn btn-primary">Создать</button>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
                     </form>
                 </div>
 

@@ -29,6 +29,7 @@ class HomeController extends Controller
     }
 
     public function store(){
+
         $data = request()->validate([
             'theme' => 'string',
             'description' => 'string',
@@ -36,6 +37,7 @@ class HomeController extends Controller
             'end_task' => 'string',
         ]);
         Task::create($data);
-        return redirect()->route('home.index');
+
+        return redirect()->route('home');
     }
 }

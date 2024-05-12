@@ -28,6 +28,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/main', 'App\Http\Controllers\MainController@index')->name('main.index');
 });
 Route::post('/home', 'App\Http\Controllers\HomeController@store')->name('home.store');
+Route::patch('/main/{main}', 'App\Http\Controllers\MainController@update')->name('main.update');
 
 
 

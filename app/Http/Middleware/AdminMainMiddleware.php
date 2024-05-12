@@ -18,7 +18,7 @@ class AdminMainMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user()->role !== 'admin') {
-            return redirect()->route('home.store');
+            return abort(401);
         }
 
         return $next($request);

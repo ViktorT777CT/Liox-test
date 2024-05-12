@@ -15,7 +15,7 @@
                 @endif
                 <div class="container pb-2 pt-2">
                     <h1 class="text-center">Создание задачи</h1>
-                    <form action="{{ route('home.store') }}" method="post">
+                    <form action="{{ route('home.store') }}" method="post" enctype='multipart/form-data'>
                         @csrf
                         <div class="mb-3">
                             <label for="number" class="form-label">Тема</label>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFileLg" class="form-label"></label>
-                            <input class="form-control form-control-lg" id="link_to_the_file" type="file">
+                            <input class="form-control form-control-lg" id="link_to_the_file" name="file" type="file">
                         </div>
                         <div class="mb-3">
                             <label for="answer" class="form-label">Дата старта</label>

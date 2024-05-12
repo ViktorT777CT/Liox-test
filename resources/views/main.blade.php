@@ -54,7 +54,11 @@
                                     <th >{{$task->description}}</th>
                                     <th >{{$task->client}}</th>
                                     <th >{{$task->email}}</th>
-                                    <th >{{$task->link_to_the_file}}</th>
+                                    <th >
+                                        @if($task->link_to_the_file)
+                                            <a href="{{$task->link_to_the_file}}" download>скачать файл</a>
+                                        @endif
+                                    </th>
                                     <th >{{$task->created_at}}</th>
                                     <th >{{$task->start_task}}</th>
                                     <th >{{$task->end_task}}</th>

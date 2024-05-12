@@ -15,6 +15,7 @@ class AddColumnStatusToTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->boolean('status')->default(false)->after('id');
+            $table->bigInteger('user_id')->after('id')->unsigned()->index();
         });
     }
 
